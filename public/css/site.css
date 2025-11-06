@@ -1,0 +1,111 @@
+
+/*Aplicando estilização na tela inteira*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/*Estilização do cabeçalho*/
+.header {
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.header span{
+    color: red;
+}
+
+/*Estilização dos links do cabeçalho*/
+.links_header {
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}
+
+.links_header a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/*Estilização do botão de login*/
+.botao_header button{
+    background-color: red;
+    padding: 8px;
+    border-radius: 15px;
+    width: 80px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-right: 8px;
+}
+
+.main {
+    background-color: black;
+    color: white;
+    padding: 220px;
+    background-image: url(../assets/img\ tela\ principal.png) ;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#falcao{
+    color: red;
+    
+}
+
+#real {
+    margin-left: 133px;
+}
+
+.main h1 {
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+
+.main h4{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.main button{
+    background-color: white;
+    color: red;
+    padding: 10px;
+    width: 200px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+#aprender{
+    margin-left: 75px;
+}
+
+
+.sobre {
+    background-color: black;
+    color: white;
+    padding: 300px;
+}
