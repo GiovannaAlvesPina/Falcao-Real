@@ -49,11 +49,12 @@
 /*Estilização do botão de login*/
 .botao_header button{
     background-color: red;
-    padding: 8px;
-    border-radius: 15px;
-    width: 80px;
+    padding: 12px;
+    border-radius: 20px;
+    width: 90px;
     color: white;
     font-weight: bold;
+    font-size: 14px;
     border: none;
     margin-right: 8px;
 }

@@ -16,51 +16,70 @@
 </head>
 
 <body onload="listar()">
+  <div class="header">
+    <div class="botao_header">
+      <a href="">
+        <button class="btn_login">Login</button>
+      </a>
+    </div>
+  </div>
 
   <div class="container">
+    <div class="formulario">
 
-    <div class="header">
-      <div class="botao_header">
-        <a href="">
-          <button class="btn_login">Login</button>
-        </a>
+
+      <div class="dados">
+
+        <div class="introducao">
+
+          <div class="icone_formulario">
+            <img src="../public/assets/img_formulario.png">
+          </div>
+          <h4>Formulário de Inscrição</h4>
+        </div>
+
+        <div class="botao_login_cadastrar">
+          <button id="botao_login">Login</button>
+          <button id="botao_cadastrar">Cadastrar</button>
+        </div>
+
+        <div class="campos">
+          <div class="par-inputs">
+            <div id="nasc">
+              <label for="input_dtNasc">Data de Nascimento</label><br>
+              <input type="text" placeholder="dd/mm/aaaa" id="input_dtNasc">
+            </div>
+
+            <div id="Telefone">
+              <label for="input_telefone">Telefone</label><br>
+              <input type="text" placeholder="(00) 00000-0000" id="input_telefone">
+            </div>
+          </div>
+
+          <div class="par-inputs">
+            <div id="cpf">
+              <label for="input_cpf">CPF</label><br>
+              <input type="text" placeholder="000.000.000-00" id="input_cpf"><br>
+            </div>
+
+            <div id="rg">
+              <label for="input_rg">RG</label><br>
+              <input type="text" placeholder="00.000.000-0" id="input_rg"><br>
+            </div>
+          </div>
+        </div>
+
+        <button id="avancar">Avançar</button>
+
       </div>
-
     </div>
 
-    <div class="introducao">
+    
 
-      <div class="icone_formulario">
-        <img src="../public/assets/img_formulario.png" width="90px">
-      </div>
-    </div>
 
-    <div class="dados">
+  </div>
 
-      <div class="botao_login_cadastrar">
-        <button>Login</button>
-        <button>Cadastrar</button>
-      </div>
-
-      <div class="campos">
-
-        <label for="input_dtNasc">Data de Nascimento</label><br>
-        <input type="text" placeholder="dd/mm/aaaa" id="input_dtNasc"><br>
-
-        <label for="input_cpf">CPF</label><br>
-        <input type="text" placeholder="000.000.000-00" id="input_cpf"><br>
-
-        <label for="input_telefone">Telefone</label><br>
-        <input type="text" placeholder="(00) 00000-0000" id="input_telefone"><br>
-
-        <label for="input_rg">RG</label><br>
-        <input type="text" placeholder="00.000.000-0" id="input_rg"><br>
-
-      </div>
-
-      <button>Avançar</button>
-
-    </div>
+  </div>
 
   </div>
 
