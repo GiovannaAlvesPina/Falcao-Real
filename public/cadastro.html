@@ -25,71 +25,226 @@
   </div>
 
   <div class="container">
-    <div class="formulario">
 
+    <div class="dados">
 
-      <div class="dados">
+      <div class="introducao">
 
-        <div class="introducao">
-
-          <div class="icone_formulario">
-            <img src="../public/assets/img_formulario.png">
-          </div>
-          <h4>Formulário de Inscrição</h4>
+        <div class="icone_formulario">
+          <img src="../public/assets/img_formulario.png">
         </div>
+        <h3>Formulário de Inscrição</h3>
+      </div>
 
-        <div class="botao_login_cadastrar">
-          <button id="botao_login">Login</button>
-          <button id="botao_cadastrar">Cadastrar</button>
-        </div>
+      <div id="botao_login_cadastrar">
+        <button id="botao_login">Login</button>
+        <button id="botao_cadastrar">Cadastrar</button>
+      </div>
 
-        <div class="campos">
-          <div class="par-inputs">
-            <div id="nasc">
-              <label for="input_dtNasc">Data de Nascimento</label><br>
-              <input type="text" placeholder="dd/mm/aaaa" id="input_dtNasc">
-            </div>
 
-            <div id="Telefone">
-              <label for="input_telefone">Telefone</label><br>
-              <input type="text" placeholder="(00) 00000-0000" id="input_telefone">
-            </div>
+      <div id="campos1">
+
+        <div id="par_inputs">
+          <div id="nasc">
+            <label for="input_dtNasc">Data de Nascimento</label><br>
+            <input type="text" placeholder="dd/mm/aaaa" id="input_dtNasc">
           </div>
 
-          <div class="par-inputs">
-            <div id="cpf">
-              <label for="input_cpf">CPF</label><br>
-              <input type="text" placeholder="000.000.000-00" id="input_cpf"><br>
-            </div>
-
-            <div id="rg">
-              <label for="input_rg">RG</label><br>
-              <input type="text" placeholder="00.000.000-0" id="input_rg"><br>
-            </div>
+          <div id="Telefone">
+            <label for="input_telefone">Telefone</label><br>
+            <input type="text" placeholder="(00) 00000-0000" id="input_telefone">
           </div>
         </div>
 
-        <button id="avancar">Avançar</button>
+        <div id="par_inputs2">
+          <div id="cpf">
+            <label for="input_cpf">CPF</label><br>
+            <input type="text" placeholder="000.000.000-00" id="input_cpf"><br>
+          </div>
+
+          <div id="rg">
+            <label for="input_rg">RG</label><br>
+            <input type="text" placeholder="00.000.000-0" id="input_rg"><br>
+          </div>
+        </div>
+
+        <div id="botao_avancar">
+          <button id="avancar" onclick="avancar(1)">Avançar</button>
+        </div>
 
       </div>
+
+      <div id="campos2" style="display: none;">
+
+        <div id="responsavel">
+          <h3>Dados do Responsável</h3>
+        </div>
+
+
+        <div id="par_inputsP2">
+
+          <div id="telefone_responsavel">
+            <label for="input_telefone_responsavel">Telefone do Responsável</label><br>
+            <input type="text" placeholder="(00) 00000-0000" id="input_telefone_responsavel"><br>
+          </div>
+
+          <div id="email_responsavel">
+            <label for="input_email_responsavel">Telefone do Responsável</label><br>
+            <input type="text" placeholder="meuEmail@sptech.school" id="input_email_responsavel"><br>
+          </div>
+
+        </div>
+
+        <div id="botao_avancar_voltar">
+          <button id="voltar" onclick="voltar(2)">Voltar</button>
+          <button id="avancar" onclick="avancar(2)">Avançar</button>
+        </div>
+
+      </div>
+
+      <div id="campos3" style="display: none;">
+
+        <div id="documentos">
+          <h3>Documentação</h3>
+        </div>
+
+
+        <div id="par_inputsP3">
+          <div id="documento_de_registro">
+            <label for="input_documento_de_registro">Documento de Registro</label><br>
+            <input type="text" placeholder="Clique para fazer upload" id="input_documento_de_registro">
+          </div>
+
+          <div id="comprovante_endereco">
+            <label for="input_comprovante_endereco">Comprovante de Endereço Recente</label><br>
+            <input type="text" placeholder="Clique para fazer upload" id="input_comprovante_endereco">
+          </div>
+        </div>
+
+        <div id="par_inputs2P3">
+          <div id="doc_cpf">
+            <label for="input_doc_cpf">CPF</label><br>
+            <input type="text" placeholder="Clique para fazer upload" id="input_doc_cpf"><br>
+          </div>
+
+          <div id="vacinacao">
+            <label for="input_vacinacao">Carteirinha de Vacinação Atualizada</label><br>
+            <input type="text" placeholder="Clique para fazer upload" id="input_vacinacao"><br>
+          </div>
+        </div>
+
+
+        <div id="doc_identificacao">
+          <label for="input_doc_identificacao">Documento de Identificação</label><br>
+          <input type="text" placeholder="Clique para fazer upload" id="input_doc_identificacao"><br>
+        </div>
+
+        <div id="botao_avancar_voltar">
+          <button id="voltar" onclick="voltar(3)">Voltar</button>
+          <button id="avancar" onclick="avancar(3)">Avançar</button>
+        </div>
+
+      </div>
+
+      <div id="campos4" style="display: none;">
+
+        <div id="documentos">
+          <h3>Tamanhos</h3>
+          <h3>Informações Adicionais</h3>
+        </div>
+
+
+        <div id="trio_inputsP4">
+          <div id="nasc">
+            <label for="input_dtNasc">Documento de Registro</label><br>
+            <input type="text" placeholder="dd/mm/aaaa" id="input_dtNasc">
+          </div>
+
+          <div id="Telefone">
+            <label for="input_telefone">Comprovante de Endereço Recente</label><br>
+            <input type="text" placeholder="(00) 00000-0000" id="input_telefone">
+          </div>
+        </div>
+
+        <div id="trio_inputs2P4">
+          <div id="cpf">
+            <label for="input_cpf">CPF</label><br>
+            <input type="text" placeholder="000.000.000-00" id="input_cpf"><br>
+          </div>
+
+          <div id="rg">
+            <label for="input_rg">Carteirinha de Vacinação Atualizada</label><br>
+            <input type="text" placeholder="00.000.000-0" id="input_rg"><br>
+          </div>
+        </div>
+
+        <div id="botao_avancar_voltar">
+          <button id="voltar" onclick="voltar(3)">Voltar</button>
+          <button id="avancar" onclick="avancar(3)">Avançar</button>
+        </div>
+
+      </div>
+
+
     </div>
 
-    
 
 
-  </div>
 
   </div>
-
-  </div>
-
-
 
 </body>
 
 </html>
 
 <script>
+
+  function avancar(pagina) {
+    if (pagina === 1) {
+      botao_login_cadastrar.style.display = "none";
+      campos1.style.display = "none";
+      campos2.style.display = "flex";
+    }
+
+    else if (pagina === 2) {
+      campos2.style.display = "none";
+      campos3.style.display = "flex";
+    }
+
+  }
+
+
+  function voltar(pagina) {
+    if (pagina === 2) {
+      botao_login_cadastrar.style.display = "flex"
+      campos1.style.display = "flex";
+      campos2.style.display = "none";
+    }
+
+    else if (pagina === 3) {
+      campos3.style.display = "none";
+      campos2.style.display = "flex";
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // Array para armazenar empresas cadastradas para validação de código de ativação 
   let listaEmpresasCadastradas = [];
