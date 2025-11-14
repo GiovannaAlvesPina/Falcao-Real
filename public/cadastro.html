@@ -148,39 +148,61 @@
 
       <div id="campos4" style="display: none;">
 
-        <div id="documentos">
-          <h3>Tamanhos</h3>
-          <h3>Informações Adicionais</h3>
-        </div>
+        <div id="par_trios">
 
 
-        <div id="trio_inputsP4">
-          <div id="nasc">
-            <label for="input_dtNasc">Documento de Registro</label><br>
-            <input type="text" placeholder="dd/mm/aaaa" id="input_dtNasc">
+
+          <div id="trio_inputsP4_container">
+
+            <h3>Tamanhos</h3>
+
+            <div class="trio_inputs">
+              <div id="tam_camiseta">
+                <label for="input_tam_camiseta">Tamanho de Camiseta</label><br>
+                <input type="text" placeholder="Selecione" id="input_tam_camiseta">
+              </div>
+
+              <div id="tam_blusao">
+                <label for="input_tam_blusao">Tamanho de Blusão</label><br>
+                <input type="text" placeholder="Selecione" id="input_tam_blusao">
+              </div>
+
+              <div id="tam_calca">
+                <label for="input_tam_calca">Tamanho de Blusão</label><br>
+                <input type="text" placeholder="Selecione" id="input_tam_calca">
+              </div>
+            </div>
           </div>
 
-          <div id="Telefone">
-            <label for="input_telefone">Comprovante de Endereço Recente</label><br>
-            <input type="text" placeholder="(00) 00000-0000" id="input_telefone">
-          </div>
-        </div>
 
-        <div id="trio_inputs2P4">
-          <div id="cpf">
-            <label for="input_cpf">CPF</label><br>
-            <input type="text" placeholder="000.000.000-00" id="input_cpf"><br>
-          </div>
 
-          <div id="rg">
-            <label for="input_rg">Carteirinha de Vacinação Atualizada</label><br>
-            <input type="text" placeholder="00.000.000-0" id="input_rg"><br>
+          <div id="trio_inputs2P4_container">
+
+            <h3>Informações Adicionais</h3>
+
+            <div class="trio_inputs">
+              <div id="sus">
+                <label for="input_sus">Carteirinha SUS</label><br>
+                <input type="text" placeholder="Selecione" id="input_sus"><br>
+              </div>
+
+              <div id="convenio">
+                <label for="input_convenio">Carteirinha do Convênio</label><br>
+                <input type="text" placeholder="Selecione" id="input_convenio"><br>
+              </div>
+
+              <div id="batizado">
+                <label for="input_batizado">É Batizado?</label><br>
+                <input type="text" placeholder="Selecione" id="input_batizado"><br>
+              </div>
+            </div>
+
           </div>
         </div>
 
         <div id="botao_avancar_voltar">
-          <button id="voltar" onclick="voltar(3)">Voltar</button>
-          <button id="avancar" onclick="avancar(3)">Avançar</button>
+          <button id="voltar" onclick="voltar(4)">Voltar</button>
+          <button id="avancar" onclick="avancar(4)">Avançar</button>
         </div>
 
       </div>
@@ -211,6 +233,14 @@
       campos3.style.display = "flex";
     }
 
+    else if (pagina === 3) {
+      campos3.style.display = "none";
+      campos4.style.display = "flex";
+    }
+
+    else if (pagina === 4) {
+
+    }
   }
 
 
@@ -224,6 +254,11 @@
     else if (pagina === 3) {
       campos3.style.display = "none";
       campos2.style.display = "flex";
+    }
+
+    else if (pagina === 4) {
+      campos3.style.display = "flex";
+      campos4.style.display = "none";
     }
   }
 
