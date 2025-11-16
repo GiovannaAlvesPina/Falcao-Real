@@ -35,9 +35,9 @@ body {
 
 .botao_header button {
   background-color: red;
-  padding: 16px;
+  padding: 12px;
   border-radius: 25px;
-  width: 110px;
+  width: 100px;
   color: white;
   font-weight: bold;
   font-size: 18px;
@@ -49,7 +49,7 @@ body {
 .introducao {
   background-color: red;
   padding: 30px;
-  width: 1100px;
+  width: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,15 +77,15 @@ body {
 
 .icone_formulario img {
   position: absolute;
-  top: 19px;
-  left: 23px;
-  width: 35px;
+  top: 5px;
+  left: 4px;
+  width: 72px;
 }
 
 .dados {
   background-color: #1a1a1a;
   color: white;
-  width: 1100px;
+  width: 700px;
   height: 800px;
   border-radius: 0 0 8px 8px;
   display: flex;
@@ -103,7 +103,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-top: 50px;
+  margin-top: 25px;
+  margin-bottom: 20px;
 }
 
 #botao_login_cadastrar button {
@@ -111,7 +112,7 @@ body {
 }
 
 #botao_cadastrar {
-  background-color: red;
+  background-color: black;
   border: none;
   padding: 12px;
   border-radius: 4px;
@@ -122,7 +123,7 @@ body {
 }
 
 #botao_login {
-  background-color: black;
+  background-color: red;
   border: none;
   padding: 12px;
   border-radius: 4px;
@@ -132,10 +133,7 @@ body {
   cursor: pointer;
 }
 
-#campos1,
-#campos2,
-#campos3,
-#campos5 {
+#campos2 {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -143,33 +141,13 @@ body {
   align-items: center;
 }
 
-#par_inputs,
-#par_inputs2,
-#par_inputsP2,
-#par_inputsP3,
-#par_inputs2P3 {
+#par_inputsP2 {
   display: flex;
   gap: 50px;
 }
 
-#campos1 input,
-#campos2 input,
-#campos5 input {
+#campos2 input {
   border: solid 1px #737373;
-  border-radius: 5px;
-  padding: 10px 50px;
-  width: 350px;
-  height: 60px;
-  background-color: black;
-  margin-top: 12px;
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: #ffffff;
-}
-
-#campos3 input,
-#campos4 input {
-  border: dashed 1px #737373;
   border-radius: 5px;
   padding: 10px 50px;
   width: 350px;
@@ -188,12 +166,12 @@ body {
   margin-bottom: 30px;
 }
 
-#botao_avancar {
+#botao_entrar {
   display: flex;
   justify-content: center;
 }
 
-#avancar {
+#entrar {
   background-color: red;
   width: 200px;
   margin-bottom: 40px;
@@ -203,70 +181,4 @@ body {
   color: white;
   font-size: 16px;
   cursor: pointer;
-}
-
-#voltar {
-  background-color: transparent;
-  width: 200px;
-  margin-bottom: 40px;
-  padding: 15px;
-  border-radius: 8px;
-  border: 2px solid red;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#botao_avancar_voltar,
-#botao_criarConta_voltar{
-  display: flex;
-  gap: 20px;
-}
-
-#responsavel {
-  margin-bottom: 10px;
-}
-
-#responsavel h3,
-#documentos h3 {
-  display: flex;
-  justify-content: center;
-  color: red;
-  border-bottom: 2px solid red;
-  padding-bottom: 20px;
-  width: 300px;
-}
-
-#documentos h3{
-  padding-top: 25px;
-}
-
-#campos4 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#par_trios {
-  display: flex;
-  gap: 60px;
-  height: 450px;
-}
-
-#par_trios h3 {
-  text-align: center;
-  color: red;
-  border-bottom: 2px solid red;
-  padding-bottom: 15px;
-  width: 300px;
-  
-}
-
-#trio_inputsP4_container,
-#trio_inputs2P4_container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 45px;
 }

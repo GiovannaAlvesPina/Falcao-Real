@@ -18,8 +18,8 @@
 <body onload="listar()">
   <div class="header">
     <div class="botao_header">
-      <a href="">
-        <button class="btn_login">Login</button>
+      <a href="./site.html">
+        <button class="btn_login">Voltar</button>
       </a>
     </div>
   </div>
@@ -37,7 +37,7 @@
       </div>
 
       <div id="botao_login_cadastrar">
-        <button id="botao_login">Login</button>
+        <button  onclick="logar()" id="botao_login">Login</button>
         <button id="botao_cadastrar">Cadastrar</button>
       </div>
 
@@ -207,6 +207,39 @@
 
       </div>
 
+       <div id="campos5" style="display: none;">
+
+        <div id="par_inputs">
+          <div id="nome">
+            <label for="input_nome">Nome Completo</label><br>
+            <input type="text" placeholder="Seu nome completo" id="input_nome">
+          </div>
+
+          <div id="senha">
+            <label for="input_senha">Senha</label><br>
+            <input type="text" placeholder="Sua Senha" id="input_senha">
+          </div>
+        </div>
+
+        <div id="par_inputs2">
+          <div id="email">
+            <label for="input_email">E-mail</label><br>
+            <input type="text" placeholder="seu@email.com" id="input_email"><br>
+          </div>
+
+          <div id="confirmar_senha">
+            <label for="input_confirmar_senha">Confirmar senha</label><br>
+            <input type="text" placeholder="Confirme sua senha" id="input_confirmar_senha"><br>
+          </div>
+        </div>
+
+        <div id="botao_criarConta_voltar">
+          <button id="voltar" onclick="voltar(5)">Voltar</button>
+          <button id="avancar" onclick="criar()">Criar Conta</button>
+        </div>
+
+      </div>
+
 
     </div>
 
@@ -221,6 +254,10 @@
 
 <script>
 
+  function logar(){
+    window.location = "./login.html"
+  }
+
   function avancar(pagina) {
     if (pagina === 1) {
       botao_login_cadastrar.style.display = "none";
@@ -229,17 +266,21 @@
     }
 
     else if (pagina === 2) {
+      botao_login_cadastrar.style.display = "none";
       campos2.style.display = "none";
       campos3.style.display = "flex";
     }
 
     else if (pagina === 3) {
+      botao_login_cadastrar.style.display = "none";
       campos3.style.display = "none";
       campos4.style.display = "flex";
     }
 
     else if (pagina === 4) {
-
+      campos4.style.display = "none";
+      campos5.style.display = "flex";
+      botao_login_cadastrar.style.display = "flex";
     }
   }
 
@@ -252,13 +293,21 @@
     }
 
     else if (pagina === 3) {
+      botao_login_cadastrar.style.display = "none";
       campos3.style.display = "none";
       campos2.style.display = "flex";
     }
 
     else if (pagina === 4) {
+      botao_login_cadastrar.style.display = "none";
       campos3.style.display = "flex";
       campos4.style.display = "none";
+    }
+
+    else if (pagina === 5){
+      botao_login_cadastrar.style.display = "none";
+      campos4.style.display = "flex";
+      campos5.style.display = "none";
     }
   }
 
