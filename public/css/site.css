@@ -1,112 +1,197 @@
-
 /*Aplicando estilização na tela inteira*/
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  height: 100vh;
 }
 
 /*Estilização do cabeçalho*/
 .header {
-    background-color: #1a1a1a;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.header span{
-    color: red;
+.header span {
+  color: red;
 }
 
 /*Estilização dos links do cabeçalho*/
 .links_header {
-    display: flex;
-    width: 500px;
-    justify-content: space-between;
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
 }
 
-.links_header a{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+.links_header a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
 /*Estilização do botão de login*/
-.botao_header button{
-    background-color: red;
-    padding: 12px;
-    border-radius: 20px;
-    width: 90px;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-    border: none;
-    margin-right: 8px;
+.botao_header button {
+  background-color: red;
+  padding: 12px;
+  border-radius: 20px;
+  width: 90px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  margin-right: 8px;
 }
 
 .main {
-    background-color: black;
-    color: white;
-    padding: 220px;
-    background-image: url(../assets/img\ tela\ principal.png) ;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: black;
+  color: white;
+  padding: 220px;
+  background-image: url(../assets/img\ tela\ principal.png);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#falcao{
-    color: red;
-    
+#falcao {
+  color: red;
 }
 
 #real {
-    margin-left: 133px;
+  margin-left: 133px;
 }
 
 .main h1 {
-    font-size: 50px;
-    margin-bottom: 40px;
+  font-size: 50px;
+  margin-bottom: 40px;
 }
 
-.main h4{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 50px;
+.main h4 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-.main button{
-    background-color: white;
-    color: red;
-    padding: 10px;
-    width: 200px;
-    border-radius: 8px;
-    font-weight: bold;
+.main button {
+  background-color: white;
+  color: red;
+  padding: 10px;
+  width: 200px;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
-#aprender{
-    margin-left: 75px;
-}
-
+/*SOBRE*/
 
 .sobre {
-    background-color: black;
-    color: white;
-    padding: 300px;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#titulo_subtitulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+padding-top: 65px;
+  width: 80%;
+}
+
+#titulo_subtitulo h1 {
+  margin-bottom: 30px;
+  border-bottom: 2px solid red;
+  padding-bottom: 20px;
+  width: 150px;
+  font-size: 50px;
+}
+
+.textos_sobre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin-top: 65px;
+}
+
+.textos_sobre h2 {
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+.textos_sobre button{
+  color: white;
+  background-color: red;
+  margin-top: 40px;
+  width: 150px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/*PILARES*/
+
+#pilares{
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  height: 90vh;
+  flex-direction: column;
+}
+
+#pilares img{
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+#titulos{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 200px;
+  margin-top: 80px;
+  font-size: 25px;
+}
+
+#titulos h1{
+  border-bottom: 2px solid red;
+  padding: 20px;
+}
+
+#cards{
+  display: flex;
+  justify-content: space-evenly;
+  height: 90%;
+  align-items: center;
+}
+
+#card_fisico,
+#card_mental,
+#card_espiritual{
+  background-color: black;
+  padding: 40px;
+  height: 350px;
+  border-radius: 8px;
+  border-left: 6px solid red;
 }
