@@ -170,7 +170,7 @@ padding-top: 65px;
   text-align: center;
   justify-content: center;
   gap: 200px;
-  margin-top: 80px;
+  margin-top: 60px;
   font-size: 25px;
 }
 
@@ -189,9 +189,53 @@ padding-top: 65px;
 #card_fisico,
 #card_mental,
 #card_espiritual{
-  background-color: black;
+  background-color: #000000;
   padding: 40px;
   height: 350px;
   border-radius: 8px;
-  border-left: 6px solid red;
+  border-left: 6px solid #ff0000;
+}
+
+#footer{
+  background-color: black;
+  color: white;
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+}
+
+#linha{
+  width: 100%;
+}
+
+#redes_sociais img{
+  width: 40px;
+}
+
+#footer input{
+  border: solid 1px #737373;
+  border-radius: 5px;
+  padding: 10px 50px;
+  width: 250px;
+  height: 50px;
+  background-color: black;
+  margin-top: 12px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+#colunas{
+  display: flex;
+  justify-content: space-between;
+}
+
+#novidades{
+  display: flex;
+  flex-direction: column;
+}
+
+#redes_sociais{
+  background-color: aqua;
+  position: absolute;
 }
