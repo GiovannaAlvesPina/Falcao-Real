@@ -3,80 +3,159 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-    <title>AquaTech | Página Inicial</title>
-
-    <script src="./js/sessao.js"></script>
-
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="css/site.css">
 </head>
 
 <body>
+
     <div class="header">
-      <div class="container">
-        <h1 class="titulo">AquaTech</h1>
-        <ul class="navbar">
-          <li class="agora">
-            <a href="#">Inicial</a>
-          </li>
-          <li>
-            <a href="simulador.html">Simulador</a>
-          </li>
-          <li>|</li>
-          <li>
-            <a href="login.html">Login</a>
-          </li>
-          <li>
-            <a href="cadastro.html">Cadastro</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="banner">
-      <div class="container">
-        <p>Preservando <span>hoje</span> para existirem <span>amanhã</span>.</p>
-      </div>
-    </div>
-  
-    <div class="social">
-      <div class="container">
-        <div class="boxes">
-          <div class="box">
-            <img src="assets/imgs/planet-earth_color.png">
-            <h4>Missão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/lightbulb_color.png">
-            <h4>Visão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/growth_color.png">
-            <h4>Valores</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
+
+        <div class="logo">
+            <img src="assets/logo_falcao_real.png" width="60px">
+            <h3><b>FALCÃO <span>REAL</span></b></h3>
         </div>
-      </div>
+
+        <div class="links_header">
+            <a href="">INÍCIO</a>
+            <a href="">SOBRE</a>
+            <a href="">ENDEREÇO</a>
+            <a href="">O QUE É</a>
+            <a href="">PILARES</a>
+        </div>
+
+        <div class="botao_header">
+            <a href="./login.html">
+                <button class="btn_login">Login</button>
+            </a>
+        </div>
+
     </div>
-  
-    <div class="footer">
-      <div class="container">
-        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-        <span class="version">v1.0.0</span>
-      </div>
+
+    <div class="container">
+
+        <div class="main">
+
+            <h1>
+                CLUBE <span id="falcao">FALCÃO</span> <br>
+                <span id="real">REAL</span>
+            </h1>
+
+            <h4>VENHA CONHECER O MUNDO DOS DESBRAVADORES <br>
+                E APRENDER COISAS INCRÍVEIS!
+            </h4>
+
+            <a href="./cadastro.html">
+                <button>INSCREVA-SE</button>
+            </a>
+
+        </div>
+
+        <div class="sobre">
+
+            <div id="titulo_subtitulo">
+                <h1>Sobre</h1>
+
+                <h4>Conheça quem somos e nossa trajetória</h4>
+            </div>
+
+            <div class="textos_sobre">
+                <h2>Família Vermelho e Branco a mais de 50 <br>
+                    anos transformando vidas
+                </h2>
+
+                <p>Fundada em 2012, a Empresa XYZ surgiu com a missão de oferecer soluções <br>
+                    tecnológicas inovadoras para empresas de todos os portes. Ao longo dos anos, <br>
+                    desenvolvemos expertise em diversas áreas, sempre mantendo o foco na <br>
+                    qualidade e na satisfação do cliente. <br>
+                    Nossa equipe é composta por profissionais altamente qualificados e <br>
+                    apaixonados pelo que fazem, garantindo que cada projeto seja executado com <br>
+                    excelência e dentro dos prazos estabelecidos.
+                </p>
+
+                <a href="">
+                    <button>Saiba Mais</button>
+                </a>
+            </div>
+
+            <div class="video_sobre">
+                <video src=""></video>
+            </div>
+
+        </div>
+
+        <div id="pilares">
+
+            <div id="titulos">
+                <h1>Físico</h1>
+                <h1>Mental</h1>
+                <h1>Espiritual</h1>
+            </div>
+
+            <div id="cards">
+
+                <div id="card_fisico">
+                    <img src="assets/fisico.png">
+                    <p>Fundada em 2012, a Empresa <br>XYZ surgiu com a missão de <br>oferecer soluções<br>
+                        tecnológicas inovadoras para <br>empresas de todos os portes.<br> Ao longo dos anos</p>
+                </div>
+
+                <div id="card_mental">
+                    <img src="assets/mental.png">
+                    <p>Fundada em 2012, a Empresa <br>XYZ surgiu com a missão de <br>oferecer soluções<br>
+                        tecnológicas inovadoras para <br>empresas de todos os portes.<br> Ao longo dos anos</p>
+                </div>
+
+                <div id="card_espiritual">
+                    <img src="assets/espiritual.png">
+                    <p>Fundada em 2012, a Empresa <br>XYZ surgiu com a missão de <br>oferecer soluções<br>
+                        tecnológicas inovadoras para <br>empresas de todos os portes.<br> Ao longo dos anos</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="footer">
+
+
+            <div id="colunas">
+
+                <div id="endereco">
+                    <h1>FALCÃO REAL</h1>
+                    <p>Igreja Adventista do Sétimo Dia</p>
+                    <p>Rua Maria Tereza Assunção, 45</p>
+                </div>
+
+                <div id="links">
+                    <h1>LINKS RÁPIDOS</h1>
+                    <p>Início</p>
+                    <p>Sobre</p>
+                    <p>Serviços</p>
+                    <p>Contatos</p>
+                </div>
+
+                <div id="novidades">
+                    <h1>NOVIDADES</h1>
+                    <p>Increva-se para receber nossas novidades e avisos sobre eventos.</p>
+                    <input type="text" placeholder="Seu e-mail">
+                    <button onclick="assinar()">Assinar</button>
+                </div>
+
+            </div>
+
+            <img id="linha" src="../public/assets/linha.png">
+
+            <div id="redes_sociais">
+                <img src="assets/insta.png">
+                <img src="assets/whatsapp.png">
+            </div>
+
+        </div>
+
     </div>
-  </body>
+</body>
 
 </html>
