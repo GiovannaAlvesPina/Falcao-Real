@@ -19,21 +19,22 @@ function autenticar(req, res) {
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
+                        res.json(resultadoAutenticar[0]);
 
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha,
-                                        aquarios: resultadoAquarios
-                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
+                       // aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
+                       //     .then((resultadoAquarios) => {
+                       //         if (resultadoAquarios.length > 0) {
+                       //             res.json({
+                       //                 id: resultadoAutenticar[0].id,
+                       //                 email: resultadoAutenticar[0].email,
+                       //                 nome: resultadoAutenticar[0].nome,
+                       //                 senha: resultadoAutenticar[0].senha,
+                       //                 aquarios: resultadoAquarios
+                       //             });
+                       //         } else {
+                       //             res.status(204).json({ aquarios: [] });
+                       //         }
+                       //     })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -56,6 +57,10 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var dtNasc = req.body.dtNascServer;
+    var telefone = req.body.telefoneServer;
+    var cpf = req.body.cpfServer;
+    var genero = req.body.generoServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -67,7 +72,7 @@ function cadastrar(req, res) {
     }else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome, email, senha, dtNasc, telefone, cpf, genero)
             .then(
                 function (resultado) {
                     res.json(resultado);

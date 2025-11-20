@@ -154,7 +154,8 @@ body {
 
 #campos1 input,
 #campos2 input,
-#campos5 input {
+#campos5 input,
+#campos1 select {
   border: solid 1px #737373;
   border-radius: 5px;
   padding: 10px 50px;
@@ -218,9 +219,10 @@ body {
 }
 
 #botao_avancar_voltar,
-#botao_criarConta_voltar{
+#botao_criarConta{
   display: flex;
   gap: 20px;
+  justify-content: center;
 }
 
 #responsavel {

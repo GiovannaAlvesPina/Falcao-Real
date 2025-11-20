@@ -9,7 +9,7 @@
     <title>Falcão Real | Dashboards</title>
 
 
-    <link rel="stylesheet" href="../css/dashboards.css">
+    <link rel="stylesheet" href="./css/dashboards.css">
     <link rel="stylesheet" href="">
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
@@ -36,32 +36,137 @@
             <h1>Falcão Real</h1>
 
             <div class="quiz">
-                <img src="../assets/quiz.png">
-                <h3>Quiz</h3>
+                <img src="./assets/quiz.png">
+                <a href="./quiz.html">
+                    <h3>Quiz</h3>
+                </a>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
-                <img src="../assets/sair.png">
-                <h3>Sair</h3>
+                <a href="./login.html">
+                    <img src="./assets/sair.png">
+                </a>
+                <a href="./login.html">
+                    <h3>Sair</h3>
+                </a>
             </div>
 
         </div>
 
-        <div class="dash">
-            <div id="alerta">
-            </div>
 
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-            </div>
-            <div id="graficos">
+        <div id="alerta">
+        </div>
+
+        <div class="container-graficos-direita">
+            <div class="container-grafico-barra">
+                <div class="grafico-card-pai">
+                    <div class="grafico-card">
+                        <div class="container-kpi-grafico">
+                            <div class="kpi-grafico vazamento">
+                                <div class="kpi-info">
+                                    <span style="color: white;">Interação</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-grafico-menor">
+                            <canvas class="grafico-barra" id="myChartBarra"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grafico-card-pai">
+                    <div class="grafico-card">
+                        <div class="container-kpi-grafico">
+                            <div class="kpi-grafico sensor">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="btns-dash" id="btnAquario">
+            <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+        </div>
+        <div id="graficos">
+        </div>
+
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctxBarra = document.getElementById('myChartBarra');
+
+        new Chart(ctxBarra, {
+            type: 'bar',
+            data: {
+                labels: [
+                    '01/10', '02/10', '03/10', '04/10', '05/10', '06/10', '07/10',
+                    '08/10', '09/10', '10/10', '11/10', '12/10', '13/10', '14/10'
+                ],
+                datasets: [
+                    {
+                        label: 'Acertos 1',
+                        data: [11, 1, 2, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: '#ff0404', /*cor dado do grafico*/
+                        borderWidth: 1, /*tamanho da largura da borda*/
+                        borderRadius: 6 /*Arredonda a borda*/
+                    },
+                    {
+                        label: 'Erros',
+                        data: [3, 0, 0, 2, 0, 1, 0, 1, 0, 2, 0, 0, 0, 2],
+                        backgroundColor: '#fb7a7a', /*cor dado do grafico*/
+                        borderWidth: 1, /*tamanho da largura da borda*/
+                        borderRadius: 6 /*Arredonda a borda*/
+                    }
+
+
+                ]
+            },
+            options: {
+                responsive: true,/*deixa o grafico responsivo*/
+                maintainAspectRatio: false,/*O grafico se ajusta ao tamanho do container,
+                 entretanto o grafico pode acabar se esticando ou comprimindo
+                 ja se o valor for tru isso não acontece*/
+                plugins: {
+                    legend: {
+                        position: 'bottom', /*A posição da legenda fica abaixo do grafico*/
+                        labels: {
+                            color: '#ffffff', /*cor da legenda*/
+                            font: { /*Estilização da font*/
+                                size: 13, /*Tamanho da font*/
+                                weight: 'bold'/*Formato negrito*/
+                            }
+                        }
+                    },
+                    tooltip: /*Caixinha das legendas estilização delas*/{
+                        backgroundColor: '#6C63FF',
+                        titleColor: '#ffffff',
+                        bodyColor: '#fff',
+                        borderWidth: 2,
+                        padding: 15
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '' },
+                        grid: { color: '' }/*cores das linhas da grade do eixo x*/
+                    },
+                    y: {
+                        beginAtZero: true,/*começa do zero o eixo y*/
+                        ticks: { color: '#ffffff' },
+                        grid: { color: '#ffffff' }/*cores das linhas da grades do eixo y*/
+                    }
+                }
+            }
+        });
+    </script>
 
 </body>
+
+
 
 </html>
 

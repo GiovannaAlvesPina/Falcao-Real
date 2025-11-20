@@ -10,15 +10,15 @@
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="./css/tela_formulario.css" />
+  <link rel="stylesheet" href="./css/cadastro.css" />
   <link rel="icon" href="./assets/icon/favicon2.ico" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
+<body>
   <div class="header">
     <div class="botao_header">
-      <a href="./site.html">
+      <a href="./index.html">
         <button class="btn_login">Voltar</button>
       </a>
     </div>
@@ -31,13 +31,13 @@
       <div class="introducao">
 
         <div class="icone_formulario">
-          <img src="../assets/img_formulario.png">
+          <img src="./assets/img_formulario.png">
         </div>
         <h3>Formulário de Inscrição</h3>
       </div>
 
       <div id="botao_login_cadastrar">
-        <button  onclick="logar()" id="botao_login">Login</button>
+        <button onclick="logar()" id="botao_login">Login</button>
         <button id="botao_cadastrar">Cadastrar</button>
       </div>
 
@@ -62,9 +62,13 @@
             <input type="text" placeholder="000.000.000-00" id="input_cpf"><br>
           </div>
 
-          <div id="rg">
-            <label for="input_rg">RG</label><br>
-            <input type="text" placeholder="00.000.000-0" id="input_rg"><br>
+          <div id="genero">
+            <label for="input_rg">Gênero</label><br>
+            <select id="select_genero">
+              <option selected value="#">Selecione uma Opção</option>
+              <option value="F">Feminino</option>
+              <option value="M">Masculino</option>
+            </select>
           </div>
         </div>
 
@@ -73,6 +77,10 @@
         </div>
 
       </div>
+
+      <!--
+
+      
 
       <div id="campos2" style="display: none;">
 
@@ -206,8 +214,8 @@
         </div>
 
       </div>
-
-       <div id="campos5" style="display: none;">
+        -->
+      <div id="campos5" style="display: none;">
 
         <div id="par_inputs">
           <div id="nome">
@@ -217,7 +225,7 @@
 
           <div id="senha">
             <label for="input_senha">Senha</label><br>
-            <input type="text" placeholder="Sua Senha" id="input_senha">
+            <input type="password" placeholder="Sua Senha" id="input_senha">
           </div>
         </div>
 
@@ -229,11 +237,12 @@
 
           <div id="confirmar_senha">
             <label for="input_confirmar_senha">Confirmar senha</label><br>
-            <input type="text" placeholder="Confirme sua senha" id="input_confirmar_senha"><br>
+            <input type="password" placeholder="Confirme sua senha" id="input_confirmar_senha"><br>
+            <span style="color: red;" id="confirmar_senha_span"></span>
           </div>
         </div>
 
-        <div id="botao_criarConta_voltar">
+        <div id="botao_criarConta">
           <button id="voltar" onclick="voltar(5)">Voltar</button>
           <button id="avancar" onclick="cadastrar()">Criar Conta</button>
         </div>
@@ -254,17 +263,16 @@
 
 <script>
 
-  function logar(){
+  function logar() {
     window.location = "./login.html"
   }
 
   function avancar(pagina) {
     if (pagina === 1) {
-      botao_login_cadastrar.style.display = "none";
       campos1.style.display = "none";
-      campos2.style.display = "flex";
+      campos5.style.display = "flex";
     }
-
+    /*
     else if (pagina === 2) {
       botao_login_cadastrar.style.display = "none";
       campos2.style.display = "none";
@@ -282,10 +290,20 @@
       campos5.style.display = "flex";
       botao_login_cadastrar.style.display = "flex";
     }
+    */
   }
 
 
+
+
   function voltar(pagina) {
+
+    if (pagina === 5) {
+      campos1.style.display = "flex";
+      campos5.style.display = "none";
+    }
+
+    /*
     if (pagina === 2) {
       botao_login_cadastrar.style.display = "flex"
       campos1.style.display = "flex";
@@ -304,53 +322,53 @@
       campos4.style.display = "none";
     }
 
-    else if (pagina === 5){
+    else if (pagina === 5) {
       botao_login_cadastrar.style.display = "none";
       campos4.style.display = "flex";
       campos5.style.display = "none";
     }
+  
+  */
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   // Array para armazenar empresas cadastradas para validação de código de ativação 
   // let listaEmpresasCadastradas = [];
 
-  function cadastrar() {
-    // aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
+
+
+  function cadastrar() {
+
+
     var nomeVar = input_nome.value;
     var emailVar = input_email.value;
     var senhaVar = input_senha.value;
     var confirmacaoSenhaVar = input_confirmar_senha.value;
+    var dtNascVar = input_dtNasc.value;
+    var telefoneVar = input_telefone.value;
+    var cpfVar = input_cpf.value;
+    var generoVar = select_genero.value;
+
+
+
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == ""
+      confirmacaoSenhaVar == "" ||
+      dtNascVar == "" ||
+      telefoneVar == "" ||
+      cpfVar == "" ||
+      generoVar == ""
     ) {
-      alert ("Preencha todos os campos")
+      alert("Preencha todos os campos")
       return;
     }
 
@@ -366,7 +384,11 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar
+        senhaServer: senhaVar,
+        dtNascServer: dtNascVar,
+        telefoneServer: telefoneVar,
+        cpfServer: cpfVar,
+        generoServer: generoVar
       }),
     })
       .then(function (resposta) {
