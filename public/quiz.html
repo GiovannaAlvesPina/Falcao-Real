@@ -4,14 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo - Quiz</title>
+    <title>Quiz</title>
     <link rel="stylesheet" href="css/quiz.css">
 </head>
 
 
 <body onload="onloadEsconder()">
+    
+    <div id="cabecalho">
+        <div id="btn_voltar">
+            <a href="./dashboard.html">
+                <button onclick="voltar()" class="btn_login">Voltar</button>
+            </a>
+        </div>
+    </div>
+
     <div id="pontuacaoEJogo">
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+
+        <img id="imagem_clube" src="assets/clube 2.JPG">
 
         <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
             <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
@@ -61,8 +72,9 @@
             <div id="botoes" class="flex-colunar padding-8">
                 <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
                 <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
                 <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                <!--<button onclick="finalizarJogo()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+
             </div>
 
         </div>
@@ -74,32 +86,139 @@
     const listaDeQuestoes = [
 
         {
-            pergunta: "Qual mês tem 30 dias?",
-            alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
+            pergunta: "Qual é a faixa etária oficial dos Desbravadores?",
+            alternativaA: "5 a 10 anos",
+            alternativaB: "10 a 15 anos",
+            alternativaC: "16 a 20 anos",
+            alternativaD: "7 a 9 anos",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Em que ano o movimento dos Desbravadores foi oficialmente organizado?",
+            alternativaA: "1950",
+            alternativaB: "1946",
+            alternativaC: "1962",
+            alternativaD: "1937",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Qual é o lema dos Desbravadores?",
+            alternativaA: "Servir é amar",
+            alternativaB: "Sempre alerta",
+            alternativaC: "O amor de Cristo nos motiva",
+            alternativaD: "O melhor de mim para Deus",
             alternativaCorreta: "alternativaC"
         },
 
-        {
-            pergunta: "Quantas horas tem em um dia?",
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
+         {
+            pergunta: "Qual é o objetivo dos Desbravadores?",
+            alternativaA: "Aventurar, correr e vencer",
+            alternativaB: "Salvar do pecado e guiar no serviço",
+            alternativaC: "Preparar líderes do futuro",
+            alternativaD: "Serviço, coragem e honra",
+            alternativaCorreta: "alternativaB"
+        },
+
+         {
+            pergunta: "Quantas classes regulares existem no programa tradicional dos Desbravadores?",
+            alternativaA: "4",
+            alternativaB: "6",
+            alternativaC: "8",
+            alternativaD: "3",
+            alternativaCorreta: "alternativaB"
+        },
+
+         {
+            pergunta: "Como se chama a classe inicial dos Desbravadores?",
+            alternativaA: "Amigo",
+            alternativaB: "Companheiro",
+            alternativaC: "Pesquisador",
+            alternativaD: "Líder",
+            alternativaCorreta: "alternativaA"
+        },
+
+         {
+            pergunta: "Qual é o símbolo internacional dos Desbravadores?",
+            alternativaA: "Águia",
+            alternativaB: "Falcão",
+            alternativaC: "Triângulo com espada",
+            alternativaD: "Cruz com corda",
+            alternativaCorreta: "alternativaC"
+        },
+
+         {
+            pergunta: "O que representa o triângulo no emblema dos Desbravadores?",
+            alternativaA: "O amor, a fé e a esperança",
+            alternativaB: "O desenvolvimento mental, físico e espiritual",
+            alternativaC: "O Pai, o Filho e o Espírito Santo",
+            alternativaD: "A união, a força e a coragem",
+            alternativaCorreta: "alternativaC"
+        },
+
+         {
+            pergunta: "Qual destes é um requisito comum nas classes dos Desbravadores?",
+            alternativaA: "Pilotar um barco",
+            alternativaB: "Escrever um livro",
+            alternativaC: "Aprender matemática avançada",
+            alternativaD: "Realizar atividades ao ar livre",
             alternativaCorreta: "alternativaD"
         },
 
-        {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
-        }
+         {
+            pergunta: "Qual é o nome da atividade onde clubes se reúnem em grande acampamento?",
+            alternativaA: "Campori",
+            alternativaB: "Conquista",
+            alternativaC: "Excursão",
+            alternativaD: "Desafio Máster",
+            alternativaCorreta: "alternativaA"
+        },
 
+         {
+            pergunta: "Qual é o propósito principal dos nós e amarras nos Desbravadores?",
+            alternativaA: "Brincadeira",
+            alternativaB: "Competição",
+            alternativaC: "Técnicas úteis de sobrevivência e camping",
+            alternativaD: "Decoração",
+            alternativaCorreta: "alternativaC"
+        },
+
+         {
+            pergunta: "Qual é a principal função de um conselheiro de unidade?",
+            alternativaA: "Ensinar a tocar instrumentos",
+            alternativaB: "Liderar e acompanhar um grupo de desbravadores",
+            alternativaC: "Organizar eventos estaduais",
+            alternativaD: "Cuidar apenas do uniforme",
+            alternativaCorreta: "alternativaB"
+        },
+
+         {
+            pergunta: "Qual é o objetivo da Lei dos Desbravadores?",
+            alternativaA: "Ensinar bons costumes",
+            alternativaB: "Aumentar o número de membros",
+            alternativaC: "Definir regras de disciplina",
+            alternativaD: "Orientar o estilo de vida cristã",
+            alternativaCorreta: "alternativaD"
+        },
+
+         {
+            pergunta: "O que significa a espada no símbolo dos Desbravadores?",
+            alternativaA: "Coragem",
+            alternativaB: "A Palavra de Deus",
+            alternativaC: "Defesa pessoal",
+            alternativaD: "Justiça civil",
+            alternativaCorreta: "alternativaB"
+        },
+
+         {
+            pergunta: "Qual é o significado do lenço usado pelos Desbravadores?",
+            alternativaA: "Representa apenas um acessório do uniforme",
+            alternativaB: "Simboliza obediência ao líder da unidade",
+            alternativaC: "Representa prontidão para servir a Deus e ao próximo",
+            alternativaD: "Serve apenas para identificar o clube no Campori",
+            alternativaCorreta: "alternativaC"
+        }
     ]
 
     // variáveis globais    
@@ -118,6 +237,7 @@
     }
 
     function iniciarQuiz() {
+        imagem_clube.style.display = "none"
         document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
@@ -128,7 +248,7 @@
 
         btnSubmeter.disabled = false
         btnProx.disabled = true
-        // btnConcluir.disabled = true
+        //btnConcluir.disabled = true
         btnTentarNovamente.disabled = true
     }
 
@@ -189,6 +309,7 @@
         } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
             alert("Atenção... a próxima é a ultima questão!")
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+
         } else {
             finalizarJogo()
         }

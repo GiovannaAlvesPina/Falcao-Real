@@ -1,4 +1,4 @@
-/* ------------------------ */
+
 /* ESTILO GERAL */
 * {
   margin: 0;
@@ -17,7 +17,10 @@ body {
   align-items: center;
 }
 
-/* ------------------------ */
+body img{
+width: 100%;
+}
+
 /* CONTAINER PRINCIPAL */
 #pontuacaoEJogo {
   display: flex;
@@ -27,8 +30,6 @@ body {
   margin-top: 20px;
 }
 
-/* ------------------------ */
-/* TOPO DO QUIZ */
 .headerQuiz {
   display: flex;
   justify-content: space-between;
@@ -69,12 +70,11 @@ body {
   opacity: 0.8;
 }
 
-/* ------------------------ */
 /* BOTÃO INICIAR */
 #btnIniciarQuiz {
   padding: 12px 25px;
   border-radius: 10px;
-  background: #8e2de2;
+  background: red;
   font-weight: bold;
   border: none;
   font-size: 18px;
@@ -84,10 +84,9 @@ body {
 }
 
 #btnIniciarQuiz:hover {
-  background: #a05cf0;
+  background: red;
 }
 
-/* ------------------------ */
 /* PONTUAÇÃO */
 #pontuacao {
   background: #181627;
@@ -103,11 +102,9 @@ body {
   font-size: 16px;
 }
 
-/* ------------------------ */
-/* ÁREA DO JOGO */
 #jogo {
   background: #181627;
-  border: 2px solid #8e2de2;
+  border: 2px solid red;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -116,7 +113,7 @@ body {
 
 /* Cabeçalho da questão */
 #infoQuestao {
-  background: #8e2de2;
+  background: red;
   text-align: center;
   padding: 15px;
   font-size: 18px;
@@ -138,7 +135,6 @@ body {
   opacity: 0.8;
 }
 
-/* ------------------------ */
 /* ALTERNATIVAS */
 #opcoes {
   display: grid;
@@ -175,7 +171,7 @@ body {
 
 /* Quando o input estiver marcado, estiliza o label associado */
 .radio:checked + .option {
-  background-color: #7a2bf5; /* ROXO SELECIONADO */
+  background-color: red;
   color: #fff;
   transform: scale(1.02);
 }
@@ -192,13 +188,8 @@ body {
   color: white !important;
 }
 
-/* Selecionado */
-.text-choice-with-bg {
-  background-color: #8e2de2 !important;
-  color: white !important;
-}
 
-/* ------------------------ */
+
 /* BOTÕES DO FINAL */
 #botoes {
   display: flex;
@@ -231,12 +222,12 @@ body {
 
 /* Próxima */
 #btnProx {
-  background: #8e2de2;
+  background: red;
   color: white;
 }
 
 #btnProx:hover {
-  background: #a05cf0;
+  background: red;
 }
 
 #btnProx:disabled {
@@ -251,4 +242,22 @@ body {
 
 #btnTentarNovamente:hover {
   background: #555;
+}
+
+#btn_voltar{
+  display: flex;
+  justify-content: end;
+}
+
+#btn_voltar button{
+  background-color: red;
+  padding: 12px;
+  border-radius: 25px;
+  width: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  margin-right: 15px;
 }

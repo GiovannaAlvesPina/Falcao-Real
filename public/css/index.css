@@ -103,17 +103,27 @@
   background-color: black;
   color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   min-height: 100vh;
+}
+
+#left_sobre{
+  display: flex;
+  flex-direction: column;
+}
+
+#sobre img{
+  width: 400px;
+  border-radius: 5px;
+  border: 2px solid red;
 }
 
 #titulo_subtitulo {
   display: flex;
   flex-direction: column;
   align-items: center;
-padding-top: 65px;
+  padding-top: 65px;
   width: 80%;
 }
 
@@ -138,7 +148,7 @@ padding-top: 65px;
   font-size: 40px;
 }
 
-.textos_sobre button{
+.textos_sobre button {
   color: white;
   background-color: red;
   margin-top: 40px;
@@ -147,11 +157,12 @@ padding-top: 65px;
   border: none;
   border-radius: 5px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 /*PILARES*/
 
-#pilares{
+#pilares {
   background-color: #1a1a1a;
   color: white;
   display: flex;
@@ -159,14 +170,14 @@ padding-top: 65px;
   flex-direction: column;
 }
 
-#pilares img{
+#pilares img {
   width: 100px;
   display: block;
   margin: 0 auto;
   margin-bottom: 30px;
 }
 
-#titulos{
+#titulos {
   display: flex;
   text-align: center;
   justify-content: center;
@@ -175,12 +186,12 @@ padding-top: 65px;
   font-size: 25px;
 }
 
-#titulos h1{
+#titulos h1 {
   border-bottom: 2px solid red;
   padding: 20px;
 }
 
-#cards{
+#cards {
   display: flex;
   justify-content: space-evenly;
   height: 90%;
@@ -189,31 +200,33 @@ padding-top: 65px;
 
 #card_fisico,
 #card_mental,
-#card_espiritual{
+#card_espiritual {
   background-color: #000000;
-  padding: 40px;
+  padding: 50px;
   height: 350px;
   border-radius: 8px;
   border-left: 6px solid #ff0000;
 }
 
-#footer{
+#footer {
   background-color: black;
   color: white;
   display: flex;
   padding: 30px;
   flex-direction: column;
-}
-
-#linha{
+  position: absolute;
   width: 100%;
 }
 
-#redes_sociais img{
+#linha {
+  width: 100%;
+}
+
+#redes_sociais img {
   width: 40px;
 }
 
-#footer input{
+#footer input {
   border: solid 1px #737373;
   border-radius: 5px;
   padding: 10px 50px;
@@ -226,17 +239,44 @@ padding-top: 65px;
   color: #ffffff;
 }
 
-#colunas{
+#colunas {
   display: flex;
   justify-content: space-between;
 }
 
-#novidades{
+#novidades {
   display: flex;
   flex-direction: column;
 }
 
-#redes_sociais{
-  background-color: aqua;
-  position: absolute;
+#redes_sociais {
+  position: relative;
+  width: 10%;
+  bottom: 50px;
+  left: 1300px;
+}
+
+#footer h1{
+  border-bottom: 3px solid red;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+}
+#footer p{
+  margin-bottom: 15px;
+}
+
+#Local{
+  font-weight: bold;
+}
+
+#footer button{
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  width: 150px;
+  font-weight: bold;
+  font-size: 16px;
 }
