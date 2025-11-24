@@ -52,14 +52,16 @@
 
           <div id="Telefone">
             <label for="input_telefone">Telefone</label><br>
-            <input type="text" placeholder="(00) 00000-0000" id="input_telefone">
+            <input maxlength="15" oninput="validar_telefone()" type="text" placeholder="(00) 00000-0000" id="input_telefone"><br>
+            <span id="telefone_span"></span>
           </div>
         </div>
 
         <div id="par_inputs2">
           <div id="cpf">
             <label for="input_cpf">CPF</label><br>
-            <input type="text" placeholder="000.000.000-00" id="input_cpf"><br>
+            <input maxlength="14" oninput="validar_cpf()" type="text" placeholder="000.000.000-00" id="input_cpf"><br>
+            <span id="cpf_span"></span>
           </div>
 
           <div id="genero">
@@ -225,20 +227,23 @@
 
           <div id="senha">
             <label for="input_senha">Senha</label><br>
-            <input type="password" placeholder="Sua Senha" id="input_senha">
+            <input oninput="validar_senha()" type="password" placeholder="Sua Senha" id="input_senha"><br>
+            <span id="senha_span"></span>
           </div>
         </div>
 
         <div id="par_inputs2">
           <div id="email">
             <label for="input_email">E-mail</label><br>
-            <input type="text" placeholder="seu@email.com" id="input_email"><br>
+            <input oninput="validar_email()" type="text" placeholder="seu@email.com" id="input_email"><br>
+            <span id="email_span"></span>
           </div>
 
           <div id="confirmar_senha">
             <label for="input_confirmar_senha">Confirmar senha</label><br>
-            <input type="password" placeholder="Confirme sua senha" id="input_confirmar_senha"><br>
-            <span style="color: red;" id="confirmar_senha_span"></span>
+            <input oninput="confirmar_senha()" type="password" placeholder="Confirme sua senha"
+              id="input_confirmar_senha"><br>
+            <span id="confirmar_senha_span"></span>
           </div>
         </div>
 
@@ -334,8 +339,106 @@
   // Array para armazenar empresas cadastradas para validação de código de ativação 
   // let listaEmpresasCadastradas = [];
 
+  var emailValido = trueOrFalse;
+  var senhaValida = trueOrFalse;
+
+  function validar_email() {
+    var email = input_email.value;
+
+    if (email.endsWith('sptech.school') ||
+      email.endsWith('.com') ||
+      email.endsWith('.com.br')
+    ) {
+
+      for (cont = 0; cont < email.length; cont++) {
+        if (email[cont] === '@') {
+          input_email.style.border = 'solid 2px #28DF99';
+          email_span.innerHTML = '';
+        }
+      }
+
+      emailValido = true;
+
+    }
+    else {
+      input_email.style.border = 'solid 2px red'
+      email_span.innerHTML = 'Formato de email inválido'
+    }
+  }
 
 
+  function validar_telefone() { //Função que verifica se o telefone é válido
+    var telefone = input_telefone.value
+    var contador = 0
+
+    while (contador < 15) { //Enquanto o contador for menor que 15(Número de caracteres máximo do telefone com as formatações)
+      contador++
+      if (telefone.length == 15) { //Se o tamanho do telefone for igual a 15, ele é válido
+        telefone_span.innerHTML = ''
+        input_telefone.style.border = 'solid 2px #28DF99'
+      } else {
+        telefone_span.innerHTML = 'Formato de telefone inválido'
+        input_telefone.style.border = 'solid 2px red'
+      }
+    }
+
+    //Formatação do telefone
+    if (telefone.length == 2) { //Se o tamanho do telefone for igual a dois, adiciona parênteses entre os número
+      input_telefone.value = '(' + telefone + ') '
+    } else if (telefone.length == 10) { //Se o tamanho do telefone for igual a 10, adiciona um traço antes dos 4 últimos números
+      input_telefone.value += '-'
+    }
+  }
+
+  function validar_cpf() { // Função que valida o CPF
+    var cpf = input_cpf.value
+    var contador = 0
+
+    while (contador < 14) { //Enquanto o contador for menor que 14(Número máximo de caracteres com a formatação do CPF)
+      contador++
+
+      if (cpf.length == 14) { //Se o tamanho do CPF inserido for igual a 14, ele é válido
+        cpf_span.innerHTML = '';
+        input_cpf.style.border = 'solid 2px #28DF99';
+      } else {
+        cpf_span.innerHTML = 'Formato de CPF inválido';
+        input_cpf.style.border = 'solid 2px red';
+      }
+
+    }
+
+    if (cpf.length == 3 || cpf.length == 7) { //Se o tamanho do CPF for igual a 3 ou igual a 7, adiciona um ponto antes dos números seguintes
+      input_cpf.value += '.'
+    } else if (cpf.length == 11) { //Se o tamanho do CPF inserido for igual a 11, adiciona um traço antes dos dígitos finais
+      input_cpf.value += '-'
+    }
+  }
+
+  function validar_senha() { //Função que valida a Senha inserida
+    var senha = input_senha.value
+
+    if (senha.length < 8) { //Se o tamanho da senha for menor que 8 caracteres, ela não será válida
+      senha_span.innerHTML = 'Senha necessita de, no mínimo, 8 caracteres'
+      input_senha.style.border = 'solid 2px red'
+    } else {
+      senha_span.innerHTML = ''
+      input_senha.style.border = 'solid 2px #28DF99'
+      senhaValida = true;
+    }
+  }
+
+  function confirmar_senha() { //Função que valida a senha repetida
+    var senha = input_senha.value
+    var senhaRepetida = input_confirmar_senha.value
+
+    if (senhaRepetida !== senha || senhaRepetida.length < 8) { //Se as senhas forem diferentes ou se o tamanho da senha repetida for menor que 8, a senha repetida será inválida
+      confirmar_senha_span.innerHTML = 'As senhas precisam ser iguais'
+      input_confirmar_senha.style.border = 'solid 2px red'
+    } else {
+      confirmar_senha_span.innerHTML = ''
+      input_confirmar_senha.style.border = 'solid 2px #28DF99'
+    }
+  }
 
   function cadastrar() {
 
@@ -372,40 +475,42 @@
       return;
     }
 
+    if (emailValido && senhaValida)
 
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        dtNascServer: dtNascVar,
-        telefoneServer: telefoneVar,
-        cpfServer: cpfVar,
-        generoServer: generoVar
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
 
-        if (resposta.ok) {
-
-          alert("Cdastro realizado com sucesso!");
-          window.location = "login.html"
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+          dtNascServer: dtNascVar,
+          telefoneServer: telefoneVar,
+          cpfServer: cpfVar,
+          generoServer: generoVar
+        }),
       })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+
+            alert("Cadastro realizado com sucesso!");
+            window.location = "login.html"
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+        });
 
     return false;
   }
