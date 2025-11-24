@@ -18,13 +18,17 @@
 
 <body>
 
+    <div id="div_aguardar" style="display:none; color: white;" >Carregando...</div>
+
+    <div id="div_erros_login" style="display:none; color:red;"></div>
+
     <div class="header">
-    <div class="botao_header">
-      <a href="./index.html">
-        <button  onclick="voltar()" class="btn_login">Voltar</button>
-      </a>
+        <div class="botao_header">
+            <a href="./index.html">
+                <button onclick="voltar()" class="btn_login">Voltar</button>
+            </a>
+        </div>
     </div>
-  </div>
 
     <div class="container">
 
@@ -44,7 +48,7 @@
             </div>
 
             <div id="campos2">
-                
+
                 <div id="par_inputsP2">
 
                     <div id="email">
@@ -60,9 +64,7 @@
                 </div>
 
                 <div id="botao_entrar">
-                    <a href="dashboard.html">
                     <button id="entrar" onclick="entrar()">Entrar</button>
-                    </a>
                 </div>
 
             </div>
@@ -79,7 +81,7 @@
 <script>
 
 
-    function cadastrar(){
+    function cadastrar() {
         window.location = "./cadastro.html"
     }
 
@@ -88,10 +90,11 @@
 
 
     function entrar() {
+        var cardErro = '';
         aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
@@ -126,11 +129,9 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
