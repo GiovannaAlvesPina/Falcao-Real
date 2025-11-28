@@ -70,7 +70,7 @@ width: 100%;
   opacity: 0.8;
 }
 
-/* BOTÃO INICIAR */
+/* BOTÃO INICIAR QUIZ*/
 #btnIniciarQuiz {
   padding: 12px 25px;
   border-radius: 10px;
@@ -111,7 +111,6 @@ width: 100%;
   overflow: hidden;
 }
 
-/* Cabeçalho da questão */
 #infoQuestao {
   background: red;
   text-align: center;
@@ -120,7 +119,6 @@ width: 100%;
   font-weight: 600;
 }
 
-/* Pergunta */
 #perguntaDaQuestaoAtual {
   text-align: center;
   padding: 20px;
@@ -129,7 +127,6 @@ width: 100%;
   margin: 0 auto;
 }
 
-/* “Escolha uma opção” */
 #infoAlternativas {
   text-align: center;
   opacity: 0.8;
@@ -200,7 +197,8 @@ width: 100%;
 
 #btnSubmeter,
 #btnProx,
-#btnTentarNovamente {
+#btnTentarNovamente, 
+#btnConcluir {
   padding: 12px 25px;
   border-radius: 12px;
   font-size: 16px;
@@ -231,6 +229,10 @@ width: 100%;
 }
 
 #btnProx:disabled {
+  opacity: 0.35;
+}
+
+#btnTentarNovamente:disabled {
   opacity: 0.35;
 }
 
