@@ -34,3 +34,7 @@ function registrarResultado(req, res) {
             );
     }
 }
+
+module.exports = {
+    registrarResultado
+}

@@ -54,7 +54,7 @@
         </div>
 
         <div id="hello">
-            <h1>Olá, <span>usuário</span>!</h1>
+            <h1>Olá, <span id="span_ola"></span>!</h1>
         </div>
 
         <div id="kpis">
@@ -239,7 +239,7 @@
 </html>
 
 <script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    span_ola.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
 
