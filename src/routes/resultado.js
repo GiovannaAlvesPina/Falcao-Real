@@ -8,4 +8,12 @@ router.post("/registrarResultado", function (req, res) {
     resultadoController.registrarResultado(req, res);
 })
 
+router.get("/buscarDados/:idUsuario", function (req, res) {
+    resultadoController.buscarDados(req, res);
+})
+
+router.get("/pegarRanking", function (req, res) {
+    resultadoController.pegarRanking(req, res);
+})
+
 module.exports = router;

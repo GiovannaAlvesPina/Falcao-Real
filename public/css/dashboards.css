@@ -140,7 +140,18 @@ canvas {
   font-weight: bold;
 }
 
-#kpi{
+#primeiro_nome,
+#segundo_nome,
+#terceiro_nome,
+#quarto_nome,
+#quinto_nome {
+  margin-left: 0;
+  width: 200px;
+  text-align: start;
+}
+
+#kpi_tentativas,
+#kpi_melhor_pontuacao {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -156,7 +167,13 @@ canvas {
   margin-left: 100px;
 }
 
-#kpis{
+#kpi_tentativas,
+#kpi_melhor_pontuacao span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#kpis {
   display: flex;
   margin-left: 700px;
 }

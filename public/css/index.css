@@ -56,6 +56,10 @@
   margin-right: 8px;
 }
 
+.btn_login{
+  cursor: pointer;
+}
+
 #main {
   background-color: black;
   color: white;
@@ -218,6 +222,12 @@
   width: 100%;
 }
 
+#links a{
+  color: white;
+  text-decoration: none;
+
+}
+
 #linha {
   width: 100%;
 }
@@ -235,7 +245,7 @@
   background-color: black;
   margin-top: 12px;
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: 16px;
   color: #ffffff;
 }
 
@@ -280,3 +290,4 @@
   font-weight: bold;
   font-size: 16px;
 }
+
