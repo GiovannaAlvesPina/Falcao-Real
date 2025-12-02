@@ -7,6 +7,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .container {
   height: 100vh;
 }
@@ -19,6 +23,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  width: 100%;
+  position: fixed;
 }
 
 .logo {
