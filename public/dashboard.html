@@ -223,7 +223,7 @@
                     console.log(JSON.stringify(json));
                     // var nomes = json.nome;
                     // var melhorPontuacao = json.melhorPontuacao;
-                    preecherRanking(json);
+                    preencherRanking(json);
                 });
 
             } else {
@@ -239,80 +239,75 @@
             console.log(erro);
         })
 
-         return false;
+        fetch(`/resultado/buscarDadosGrafico/${idUsuario}`, {
 
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DE BUSCAR DADOS DO GRÁFICO()!")
 
+            if (resposta.ok) {
+                console.log(resposta);
 
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
 
+                    var acertos = json.acertos;
+                    var erros = json.erros;
+
+                    console.log('Aqui estão os dados do gráfico:')
+                    console.log(acertos, erros);
+
+                    const ctx = document.getElementById('myChartBarra');
+
+                    new Chart(ctx, {
+
+                        type: 'bar',
+                        data: {
+                            labels: ['Acertos','Erros'],
+                            datasets: [
+                                {
+                                label: 'ACERTOS',
+                                data: [acertos],
+                                borderWidth: 1,
+                                backgroundColor: 'green',
+                            },
+                            {
+                                label: 'ERROS',
+                                data: [erros],
+                                borderWidth: 1,
+                                backgroundColor: 'red',
+                            }
+                        
+                        ]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar buscar os dados!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
 
-    const ctxBarra = document.getElementById('myChartBarra');
-
-    new Chart(ctxBarra, {
-        type: 'bar',
-        data: {
-            labels: [
-                '01/10', '02/10', '03/10', '04/10', '05/10', '06/10', '07/10',
-                '08/10', '09/10', '10/10', '11/10', '12/10', '13/10', '14/10'
-            ],
-            datasets: [
-                {
-                    label: 'Acertos 1',
-                    data: [11, 1, 2, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-                    backgroundColor: '#ff0404', /*cor dado do grafico*/
-                    borderWidth: 1, /*tamanho da largura da borda*/
-                    borderRadius: 6 /*Arredonda a borda*/
-                },
-                {
-                    label: 'Erros',
-                    data: [3, 0, 0, 2, 0, 1, 0, 1, 0, 2, 0, 0, 0, 2],
-                    backgroundColor: '#fb7a7a', /*cor dado do grafico*/
-                    borderWidth: 1, /*tamanho da largura da borda*/
-                    borderRadius: 6 /*Arredonda a borda*/
-                }
-
-
-            ]
-        },
-        options: {
-            responsive: true,/*deixa o grafico responsivo*/
-            maintainAspectRatio: false,/*O grafico se ajusta ao tamanho do container,
-                 entretanto o grafico pode acabar se esticando ou comprimindo
-                 ja se o valor for tru isso não acontece*/
-            plugins: {
-                legend: {
-                    position: 'bottom', /*A posição da legenda fica abaixo do grafico*/
-                    labels: {
-                        color: '#ffffff', /*cor da legenda*/
-                        font: { /*Estilização da font*/
-                            size: 13, /*Tamanho da font*/
-                            weight: 'bold'/*Formato negrito*/
-                        }
-                    }
-                },
-                tooltip: /*Caixinha das legendas estilização delas*/{
-                    backgroundColor: '#6C63FF',
-                    titleColor: '#ffffff',
-                    bodyColor: '#fff',
-                    borderWidth: 2,
-                    padding: 15
-                }
-            },
-            scales: {
-                x: {
-                    ticks: { color: '' },
-                    grid: { color: '' }/*cores das linhas da grade do eixo x*/
-                },
-                y: {
-                    beginAtZero: true,/*começa do zero o eixo y*/
-                    ticks: { color: '#ffffff' },
-                    grid: { color: '#ffffff' }/*cores das linhas da grades do eixo y*/
-                }
-            }
-        }
-    });
-
-    function preecherRanking(json) {
+    function preencherRanking(json) {
         document.getElementById('primeiro_nome').innerHTML = json[0].nome;
         document.getElementById('primeiro_ponto').innerHTML = json[0].melhorPontuacao;
         document.getElementById('segundo_nome').innerHTML = json[1].nome;
@@ -323,6 +318,7 @@
         document.getElementById('quarto_ponto').innerHTML = json[3].melhorPontuacao;
         document.getElementById('quinto_nome').innerHTML = json[4].nome;
         document.getElementById('quinto_ponto').innerHTML = json[4].melhorPontuacao;
-
     }
+
+
 </script>

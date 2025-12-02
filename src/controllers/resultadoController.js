@@ -87,8 +87,41 @@ function pegarRanking(req, res) {
         });
 }
 
+function buscarDadosGrafico(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else {
+        resultadoModel
+            .buscarDadosGrafico(idUsuario)
+            .then(function (resultado) {
+                console.log(`\nResultados encontrados: ${resultado.length}`);
+                console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                if (resultado.length >= 1) {
+                    console.log(resultado);
+                    res.json(resultado[0]);
+                } else if (resultado.length == 0) {
+                    res.status(403).send("Dados da dash inválido(s)");
+                } else {
+                    res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                }
+            })
+            .catch(function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a busca de dados! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            });
+    }
+}
+
 module.exports = {
     registrarResultado,
     buscarDados,
     pegarRanking,
+    buscarDadosGrafico
 };

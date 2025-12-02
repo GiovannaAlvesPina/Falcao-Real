@@ -52,8 +52,21 @@ function pegarRanking() {
   return database.executar(instrucaoSql);
 }
 
+function buscarDadosGrafico(idUsuario) {
+  console.log(
+    "ACESSEI OS DADOS DO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ",
+    idUsuario
+  );
+  var instrucaoSql = `
+        SELECT acertos, erros FROM resultado WHERE fkUsuarios = ${idUsuario} ORDER BY idResultado DESC LIMIT 1;`;
+        
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   registrarResultado,
   buscarDados,
-  pegarRanking
+  pegarRanking,
+  buscarDadosGrafico
 };

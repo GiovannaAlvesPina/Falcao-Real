@@ -16,4 +16,8 @@ router.get("/pegarRanking", function (req, res) {
     resultadoController.pegarRanking(req, res);
 })
 
+router.get("/buscarDadosGrafico/:idUsuario", function (req, res) {
+    resultadoController.buscarDadosGrafico(req, res);
+})
+
 module.exports = router;
