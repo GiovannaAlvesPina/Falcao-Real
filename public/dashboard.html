@@ -38,9 +38,7 @@
 
             <div class="quiz">
                 <img src="./assets/quiz.png">
-                <a href="./quiz.html">
-                    <h3>Quiz</h3>
-                </a>
+                <button onclick="fazerQuiz()" id="botao_quiz">Quiz</button>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
@@ -81,7 +79,7 @@
                         <div class="container-kpi-grafico">
                             <div class="kpi-grafico vazamento">
                                 <div class="kpi-info">
-                                    <span style="color: white;">Última Tentativa</span>
+                                    <span id="span_grafico" style="color: white;">Última Tentativa</span>
                                 </div>
                             </div>
                         </div>
@@ -102,60 +100,63 @@
             </div>
         </div>
 
-        <div id="ranking">
+        <div id="area_ranking">
 
-            <h2>Ranking FR</h2>
+            <div id="ranking">
 
-            <div id="primeiro_lugar">
+                <h2>Ranking FR</h2>
 
-                <div id="colocacao">
-                    <h3>1</h3>
+                <div id="primeiro_lugar">
+
+                    <div id="colocacao">
+                        <h3>1</h3>
+                    </div>
+
+                    <span id="primeiro_nome"></span>
+                    <span id="primeiro_ponto"></span><span>pontos</span>
                 </div>
 
-                <span id="primeiro_nome"></span>
-                <span id="primeiro_ponto"></span><span>pontos</span>
-            </div>
+                <div id="segundo_lugar">
 
-            <div id="segundo_lugar">
+                    <div id="colocacao">
+                        <h3>2</h3>
+                    </div>
 
-                <div id="colocacao">
-                    <h3>2</h3>
+                    <span id="segundo_nome"></span>
+                    <span id="segundo_ponto"></span><span>pontos</span>
                 </div>
 
-                <span id="segundo_nome"></span>
-                <span id="segundo_ponto"></span><span>pontos</span>
-            </div>
+                <div id="terceiro_lugar">
 
-            <div id="terceiro_lugar">
+                    <div id="colocacao">
+                        <h3>3</h3>
+                    </div>
 
-                <div id="colocacao">
-                    <h3>3</h3>
+                    <span id="terceiro_nome"></span>
+                    <span id="terceiro_ponto"></span> <span>pontos</span>
                 </div>
 
-                <span id="terceiro_nome"></span>
-                <span id="terceiro_ponto"></span> <span>pontos</span>
-            </div>
+                <div id="quarto_lugar">
 
-            <div id="quarto_lugar">
+                    <div id="colocacao">
+                        <h3>4</h3>
+                    </div>
 
-                <div id="colocacao">
-                    <h3>4</h3>
+                    <span id="quarto_nome"></span>
+                    <span id="quarto_ponto"></span><span>pontos</span>
                 </div>
 
-                <span id="quarto_nome"></span>
-                <span id="quarto_ponto"></span><span>pontos</span>
-            </div>
+                <div id="quinto_lugar">
 
-            <div id="quinto_lugar">
+                    <div id="colocacao">
+                        <h3>5</h3>
+                    </div>
 
-                <div id="colocacao">
-                    <h3>5</h3>
+                    <span id="quinto_nome"></span>
+                    <span id="quinto_ponto"></span><span>pontos</span>
                 </div>
 
-                <span id="quinto_nome"></span>
-                <span id="quinto_ponto"></span><span>pontos</span>
             </div>
-
         </div>
 
     </div>
@@ -169,6 +170,10 @@
 
 
 <script>
+
+    function fazerQuiz(){
+            window.location.href ='quiz.html';
+        }
 
     function carregarDash() {
 
@@ -258,27 +263,28 @@
                     console.log(acertos, erros);
 
                     const ctx = document.getElementById('myChartBarra');
+                    Chart.defaults.color = '#ffffff';
 
                     new Chart(ctx, {
 
                         type: 'bar',
                         data: {
-                            labels: ['Acertos','Erros'],
+                            labels: ['Acertos', 'Erros'],
                             datasets: [
                                 {
-                                label: 'ACERTOS',
-                                data: [acertos],
-                                borderWidth: 1,
-                                backgroundColor: 'green',
-                            },
-                            {
-                                label: 'ERROS',
-                                data: [erros],
-                                borderWidth: 1,
-                                backgroundColor: 'red',
-                            }
-                        
-                        ]
+                                    label: 'ACERTOS',
+                                    data: [acertos],
+                                    borderWidth: 1,
+                                    backgroundColor: 'green',
+                                },
+                                {
+                                    label: 'ERROS',
+                                    data: [erros],
+                                    borderWidth: 1,
+                                    backgroundColor: 'red',
+                                }
+
+                            ]
                         },
                         options: {
                             scales: {

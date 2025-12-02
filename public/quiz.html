@@ -72,7 +72,7 @@
             <div id="botoes" class="flex-colunar padding-8">
                 <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
                 <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                <!-- <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button> -->
                 <button onclick="finalizarJogo()" id="btnConcluir" disabled>Finalizar Quiz</button>
 
             </div>
@@ -249,7 +249,7 @@
         btnSubmeter.disabled = false
         btnProx.disabled = true
         btnConcluir.disabled = false
-        btnTentarNovamente.disabled = true
+        //btnTentarNovamente.disabled = true
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
@@ -316,10 +316,10 @@
         limparCoresBackgroundOpcoes()
     }
 
-    function tentarNovamente() {
-        // atualiza a página
-        window.location.reload();
-    }
+  // function tentarNovamente() {
+  //     // atualiza a página
+  //     window.location.reload();
+  // }
 
     function checarResposta() {
         const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
