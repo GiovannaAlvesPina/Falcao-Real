@@ -47,7 +47,8 @@
         <div id="par_inputs">
           <div id="nasc">
             <label class="label_dtNasc" for="input_dtNasc">Data de Nascimento</label><br>
-            <input maxlength="10" oninput="formatar_dtNasc()" type="text" placeholder="aaaa/mm/dd" id="input_dtNasc"><br>
+            <input maxlength="10" oninput="formatar_dtNasc()" type="text" placeholder="aaaa/mm/dd"
+              id="input_dtNasc"><br>
             <span id="dtNasc_span"></span>
           </div>
 
@@ -368,7 +369,7 @@
     }
   }
 
-
+  var telefoneLength = 0;
   function validar_telefone() { //Função que verifica se o telefone é válido
     var invalidos = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     var contador = 0
@@ -379,7 +380,7 @@
       console.log('2', atual);
       console.log('3', input_telefone);
       console.log('4', input_telefone.value.toLowerCase().replaceAll(atual, ''));
-      
+
       input_telefone.value = input_telefone.value.toLowerCase().replaceAll(atual, '');
     }
 
@@ -397,36 +398,46 @@
     }
 
     //Formatação do telefone
-    if (telefone.length == 2) { //Se o tamanho do telefone for igual a dois, adiciona parênteses entre os número
-      input_telefone.value = '(' + telefone + ') '
-    } else if (telefone.length == 10) { //Se o tamanho do telefone for igual a 10, adiciona um traço antes dos 4 últimos números
-      input_telefone.value += '-'
+    if (telefoneLength <= telefone.length) {
+      if (telefone.length == 2) { //Se o tamanho do telefone for igual a dois, adiciona parênteses entre os número
+        input_telefone.value = '(' + telefone + ') '
+      } else if (telefone.length == 10) { //Se o tamanho do telefone for igual a 10, adiciona um traço antes dos 4 últimos números
+        input_telefone.value += '-'
+      }
     }
+    telefoneLength = input_telefone.value.length;
   }
 
+  var dtNascLength = 0;
   function formatar_dtNasc() {
 
     var dtNascVar = input_dtNasc.value;
 
-   // if(isNaN(input_dtNasc.value)){
-   //   dtNasc_span.innerHTML = 'Formato inválido!'
-   // }
+    // if(isNaN(input_dtNasc.value)){
+    //   dtNasc_span.innerHTML = 'Formato inválido!'
+    // }
 
-    if (dtNascVar.length == 1) {
-      dtNasc_span.innerHTML = 'A data deve estar em formato americano!'
+    if (dtNascLength <= dtNascVar.length) {
+
+      if (dtNascVar.length == 1) {
+        dtNasc_span.innerHTML = 'A data deve estar em formato americano!'
+      } else {
+        dtNasc_span.innerHTML = '';
+      }
+
+      if (dtNascVar.length == 4) {
+        input_dtNasc.value += '-'
+      }
+
+      if (dtNascVar.length == 7) {
+        input_dtNasc.value += '-'
+      }
+
     }
-
-    if (dtNascVar.length == 4) {
-      input_dtNasc.value += '-'
-    }
-
-    if (dtNascVar.length == 7) {
-      input_dtNasc.value += '-'
-    }
-
+    dtNascLength = input_dtNasc.value.length;
   }
 
-
+  var cpfLength = 0;
   function validar_cpf() { // Função que valida o CPF
     dtNasc_span.innerHTML = ''
     var cpf = input_cpf.value
@@ -444,12 +455,14 @@
       }
 
     }
-
-    if (cpf.length == 3 || cpf.length == 7) { //Se o tamanho do CPF for igual a 3 ou igual a 7, adiciona um ponto antes dos números seguintes
-      input_cpf.value += '.'
-    } else if (cpf.length == 11) { //Se o tamanho do CPF inserido for igual a 11, adiciona um traço antes dos dígitos finais
-      input_cpf.value += '-'
+    if (cpfLength <= cpf.length) {
+      if (cpf.length == 3 || cpf.length == 7) { //Se o tamanho do CPF for igual a 3 ou igual a 7, adiciona um ponto antes dos números seguintes
+        input_cpf.value += '.'
+      } else if (cpf.length == 11) { //Se o tamanho do CPF inserido for igual a 11, adiciona um traço antes dos dígitos finais
+        input_cpf.value += '-'
+      }
     }
+    cpfLength = input_cpf.value.length;
   }
 
   function validar_senha() { //Função que valida a Senha inserida
