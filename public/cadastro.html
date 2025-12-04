@@ -47,7 +47,7 @@
         <div id="par_inputs">
           <div id="nasc">
             <label class="label_dtNasc" for="input_dtNasc">Data de Nascimento</label><br>
-            <input maxlength="10" oninput="formatar_dtNasc()" type="text" placeholder="aaaa/mm/dd"
+            <input maxlength="10" oninput="formatar_dtNasc()" type="date" placeholder="dd/mm/aaaa"
               id="input_dtNasc"><br>
             <span id="dtNasc_span"></span>
           </div>
@@ -417,25 +417,7 @@
     //   dtNasc_span.innerHTML = 'Formato inválido!'
     // }
 
-    if (dtNascLength <= dtNascVar.length) {
-
-      if (dtNascVar.length == 1) {
-        dtNasc_span.innerHTML = 'A data deve estar em formato americano!'
-      } else {
-        dtNasc_span.innerHTML = '';
-      }
-
-      if (dtNascVar.length == 4) {
-        input_dtNasc.value += '-'
-      }
-
-      if (dtNascVar.length == 7) {
-        input_dtNasc.value += '-'
-      }
-
-    }
-    dtNascLength = input_dtNasc.value.length;
-  }
+}
 
   var cpfLength = 0;
   function validar_cpf() { // Função que valida o CPF
